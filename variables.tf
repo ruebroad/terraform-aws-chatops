@@ -7,7 +7,7 @@ variable "cw_logs_retention_in_days" {
   description = "Cloudwatch log retention in days"
 }
 variable "tags" {
-  type        = map
+  type        = map(any)
   default     = {}
   description = "Map of tags to apply"
 }
