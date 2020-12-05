@@ -3,7 +3,7 @@
 lint_failed="no"
 for file in $(find . -name "*tf")
 do
-    lines=$(terraform fmt -check -list=true ${file} | wc -l | sed 's/[^0-9]//g')
+    lines=$(terraform fmt -write=false -check -list=true ${file} | wc -l | sed 's/[^0-9]//g')
     if [ ${lines} != "0" ]
     then
     echo "Please run terraform fmt ${file}"
