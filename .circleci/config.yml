@@ -1,0 +1,35 @@
+version: 2
+jobs:
+  terraform:
+    docker:
+      - image: hashicorp/terraform:light
+    steps:
+      - checkout
+      - run: 
+          name: init
+          command: |
+            terraform init -input=false
+            if [ $? != "0" ]; then exit $?; fi
+      - run: 
+          name: lint-validate
+          command: |
+            chmod +x .circleci/lint.sh
+            chmod +x .circleci/validate.sh
+            .circleci/lint.sh
+            .circleci/validate.sh
+      - run:
+          name: bump version
+          command: |
+            chmod +x .circleci/bump.sh
+            .circleci/bump.sh
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - terraform:
+          context: terraform
+          filters:
+            branches:
+              only: master
+  
