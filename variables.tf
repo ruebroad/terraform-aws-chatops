@@ -1,6 +1,7 @@
 variable "name" {
   description = "Name to apply to resources"
 }
+variable "region" { default = "eu-west-1" }
 variable "cw_logs_retention_in_days" {
   default     = 3
   description = "Cloudwatch log retention in days"
