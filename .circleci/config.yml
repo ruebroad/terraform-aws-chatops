@@ -15,7 +15,7 @@ jobs:
           command: |
             chmod +x .circleci/lint.sh
             chmod +x .circleci/validate.sh
-            # source .circleci/lint.sh
+            source .circleci/lint.sh
             source .circleci/validate.sh
   bump:
     docker:
