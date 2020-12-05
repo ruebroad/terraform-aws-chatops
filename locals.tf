@@ -7,8 +7,8 @@ locals {
   output_path   = "${path.module}/output/chatops.zip"
 
   build_triggers = {
-    requirements = "${base64sha256(file("${path.module}/requirements.txt"))}"
-    execute      = "${base64sha256(file("${path.module}/pip.sh"))}"
+    requirements = base64sha256(file("${path.module}/requirements.txt"))
+    execute      = base64sha256(file("${path.module}/pip.sh"))
   }
 
   chime_template = "chime.tpl"
