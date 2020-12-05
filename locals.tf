@@ -1,5 +1,4 @@
 locals {
-
   handler = "chatops.lambda_handler"
 
   build_command = "${path.module}/pip.sh ${path.module}/requirements.txt ${path.module}/code"
