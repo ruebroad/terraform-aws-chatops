@@ -26,8 +26,8 @@ git config user.name "CircleCI Job"
 git checkout master
 
 # Commit
-git add .changes/*.json
-git add .changes/next-release/*.json
+git add .semversioner/*.json
+git add .semversioner/next-release/*.json
 git add README.md
 git add CHANGELOG.md
 

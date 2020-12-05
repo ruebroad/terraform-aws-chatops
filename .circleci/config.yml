@@ -35,6 +35,7 @@ jobs:
       - run:
           name: install semver
           command: |
+            sudo apt install python3-pip -y 
             /usr/bin/python3 -m pip install -r requirements.txt
       - run:
           name: bump version
@@ -46,7 +47,10 @@ workflows:
   version: 2
   build:
     jobs: 
-      - shellcheck
+      - shellcheck:
+          filters:
+            branches:
+              ignore: master
       - terraform:
           context: terraform
       - bump:
