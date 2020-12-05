@@ -12,7 +12,7 @@ jobs:
             find . -type f -name '*.sh' | xargs shellcheck --external-sources
   terraform:
     docker:
-      - image: hashicorp/terraform:latest
+      - image: hashicorp/terraform:0.13.5
     steps:
       - checkout
       - run: 
