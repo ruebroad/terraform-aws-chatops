@@ -4,8 +4,8 @@
 apk add --update openssl
 apk add curl
 # wget https://github.com/wata727/tflint/releases/download/v0.5.4/tflint_linux_amd64.zip
-tflint_latest_url=$(curl -s https://github.com/wata727/tflint/releases/latest |grep -o 'https://[^"]*' | sed 's/tag/download/' )
-wget "$tflint_latest_url/tflint_linux_amd64.zip"
+tflint_latest_url=$(curl -Ls https://api.github.com/repos/terraform-linters/tflint/releases/latest | grep -o -E "https://.+?_linux_amd64.zip")
+wget $tflint_latest_url
 unzip tflint_linux_amd64.zip
 mkdir -p /usr/local/tflint/bin
 export PATH=/usr/local/tflint/bin:$PATH
