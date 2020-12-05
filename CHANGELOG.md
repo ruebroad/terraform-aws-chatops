@@ -1,6 +1,10 @@
 # Changelog
 Note: version releases in the 0.x.y range may introduce breaking changes.
 
+## 0.2.0
+
+- minor: feat: add sns topic encryption
+
 ## 0.1.1
 
 - patch: fix: correct bump

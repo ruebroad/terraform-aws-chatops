@@ -1,0 +1,6 @@
+[
+  {
+    "description": "feat: add sns topic encryption",
+    "type": "minor"
+  }
+]
