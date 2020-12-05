@@ -47,7 +47,6 @@ workflows:
   build:
     jobs: 
       - shellcheck
-    jobs:
       - terraform:
           context: terraform
       - bump:
