@@ -17,6 +17,15 @@ jobs:
             chmod +x .circleci/validate.sh
             source .circleci/lint.sh
             source .circleci/validate.sh
+  bump:
+    steps:
+      - checkout
+      - run:
+          name: install python, pip and semver
+          command: |
+            apk --update --no-cache add python3 py3-pip
+            /usr/bin/python3 -m pip install --upgrade pip
+            /usr/bin/python3 -m pip install -r requirements.txt
       - run:
           name: bump version
           command: |
@@ -28,6 +37,8 @@ workflows:
   build:
     jobs:
       - terraform:
+          context: terraform
+      - bump:
           context: terraform
           filters:
             branches:
