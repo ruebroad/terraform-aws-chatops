@@ -46,7 +46,7 @@ workflows:
   version: 2
   build:
     jobs: 
-      - shellcheck:
+      - shellcheck
     jobs:
       - terraform:
           context: terraform
