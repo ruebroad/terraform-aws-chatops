@@ -1,4 +1,3 @@
-
 #!/bin/sh
 AWS_DEFAULT_REGION="eu-west-1"
 
