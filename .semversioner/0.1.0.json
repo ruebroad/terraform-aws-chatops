@@ -1,0 +1,10 @@
+[
+  {
+    "description": "feat: add versions.tf, changelog",
+    "type": "minor"
+  },
+  {
+    "description": "feat: add circleci, cleanup",
+    "type": "minor"
+  }
+]
