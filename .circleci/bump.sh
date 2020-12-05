@@ -44,4 +44,4 @@ git status
 # Tag
 echo "Add version tag ${new_version} to repo"
 git tag -a -m "Tagging for release ${new_version}" "${new_version}"
-git push origin ${new_version}
+git push origin "${new_version}"
