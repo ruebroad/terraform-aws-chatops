@@ -1,0 +1,57 @@
+version: 2
+jobs:
+  shellcheck:
+    docker:
+      - image: koalaman/shellcheck-alpine:stable
+    steps:
+      - checkout
+      - run:
+          name: Check Scripts
+          command: |
+            find . -type f -name '*.sh' | wc -l
+            find . -type f -name '*.sh' | xargs shellcheck --external-sources
+  terraform:
+    docker:
+      - image: hashicorp/terraform:0.13.5
+    steps:
+      - checkout
+      - run: 
+          name: init
+          command: |
+            terraform init -input=false
+            if [ $? != "0" ]; then exit $?; fi
+      - run: 
+          name: lint-validate
+          command: |
+            chmod +x .circleci/lint.sh
+            chmod +x .circleci/validate.sh
+            source .circleci/lint.sh
+            source .circleci/validate.sh
+  bump:
+    docker:
+      - image: circleci/python
+    steps:
+      - checkout
+      - run:
+          name: install semver
+          command: |
+            /usr/bin/python3 -m pip install -r requirements.txt
+      - run:
+          name: bump version
+          command: |
+            chmod +x .circleci/bump.sh
+            source .circleci/bump.sh
+
+workflows:
+  version: 2
+  build:
+    jobs: 
+      - shellcheck
+      - terraform:
+          context: terraform
+      - bump:
+          context: terraform
+          filters:
+            branches:
+              only: master
+  

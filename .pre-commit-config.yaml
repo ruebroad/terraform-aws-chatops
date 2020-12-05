@@ -1,0 +1,11 @@
+repos:
+- repo: git://github.com/antonbabenko/pre-commit-terraform
+  rev: v1.45.0 # Get the latest from: https://github.com/antonbabenko/pre-commit-terraform/releases
+  hooks:
+    - id: terraform_fmt
+    - id: terraform_validate
+    - id: terraform_tfsec
+- repo: github.com/syntaqx/git-hooks
+  hooks:
+    - id: circleci-config-validate
+    - id: shellcheck
