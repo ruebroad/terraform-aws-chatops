@@ -18,4 +18,7 @@ locals {
     var.chatops_app == "teams" ? file("${path.module}/files/${local.teams_template}") :
     file("${path.module}/files/${local.slack_template}")
   )
+
+  create_kms_key    = var.encrypt_sns_topic == true && var.kms_master_key_id == "" ? 1 : 0
+  kms_master_key_id = (var.encrypt_sns_topic == true && var.kms_master_key_id == "") ? aws_kms_key.sns[0].key_id : (var.encrypt_sns_topic == true && var.kms_master_key_id != "") ? var.kms_master_key_id : ""
 }

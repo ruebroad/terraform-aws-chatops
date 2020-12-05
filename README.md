@@ -2,7 +2,7 @@
 
 Current version: v0.1.1
 
-[![CircleCI](https://circleci.com/gh/ruebroad/terraform-aws-chatops.svg?style=svg)](https://app.circleci.com/pipelines/github/ruebroad/terraform-aws-chatops)
+[![CircleCI](https://circleci.com/gh/ruebroad/terraform-aws-chatops.svg?style=shield)](https://app.circleci.com/pipelines/github/ruebroad/terraform-aws-chatops)
 
 SNS topic and Lambda function for sending messages to MS Teams, AWS Chime or Slack
 
