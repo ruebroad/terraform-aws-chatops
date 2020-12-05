@@ -2,7 +2,7 @@ version: 2
 jobs:
   terraform:
     docker:
-      - image: hashicorp/terraform:light
+      - image: hashicorp/terraform:latest
     steps:
       - checkout
       - run: 
