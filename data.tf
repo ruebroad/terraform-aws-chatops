@@ -30,7 +30,6 @@ data "archive_file" "source" {
 data "template_file" "chime" {
   count    = local.use_chime
   template = local.template_file
-  # template = file("${path.module}/files/${local.chime_template}")
   vars = {
     webhook_url = var.webhook_url
   }
@@ -39,7 +38,6 @@ data "template_file" "chime" {
 data "template_file" "slack" {
   count    = local.use_slack
   template = local.template_file
-  #template = file("${path.module}/files/${local.slack_template}")
   vars = {
     webhook_url    = var.webhook_url
     slack_channel  = var.slack_channel
@@ -50,7 +48,6 @@ data "template_file" "slack" {
 data "template_file" "teams" {
   count    = local.use_teams
   template = local.template_file
-  #template = file("${path.module}/files/${local.teams_template}")
   vars = {
     webhook_url = var.webhook_url
   }
