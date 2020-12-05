@@ -1,6 +1,6 @@
 # Terraform Chatops Module
 
-Current version: v0.1.0
+Current version: v0.1.1
 
 SNS topic and Lambda function for sending messages to MS Teams, AWS Chime or Slack
 
@@ -10,7 +10,7 @@ Works with AWS Chime, MS Teams or Slack. If the default lambda function (templat
 
 ```(terraform)
 module "aws_chatops" {
-  source = "https://github.com/ruebroad/terraform-aws-chatops?ref=v0.1.0"
+  source = "https://github.com/ruebroad/terraform-aws-chatops?ref=v0.1.1"
 
   name = ""
   webhook_url = ""
