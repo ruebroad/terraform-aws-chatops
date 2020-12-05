@@ -24,7 +24,4 @@ locals {
     var.chatops_app == "teams" ? file("${path.module}/files/${local.teams_template}") :
     file("${path.module}/files/${local.slack_template}")
   )
-
-
-
 }
