@@ -18,13 +18,13 @@ jobs:
             source .circleci/lint.sh
             source .circleci/validate.sh
   bump:
+    docker:
+      - image: circleci/python
     steps:
       - checkout
       - run:
-          name: install python, pip and semver
+          name: install semver
           command: |
-            apk --update --no-cache add python3 py3-pip
-            /usr/bin/python3 -m pip install --upgrade pip
             /usr/bin/python3 -m pip install -r requirements.txt
       - run:
           name: bump version
