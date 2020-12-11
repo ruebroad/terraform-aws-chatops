@@ -18,7 +18,7 @@ jobs:
       - run: 
           name: init
           command: |
-            terraform init -input=false
+            terraform init -input=false -backend=false
             if [ $? != "0" ]; then exit $?; fi
       - run: 
           name: lint-validate
